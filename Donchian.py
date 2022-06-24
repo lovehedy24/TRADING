@@ -131,7 +131,7 @@ class Donchian_Opt_MY(IStrategy):
             dataframe['DC_mid'] = donchian_df[f"DCM_{dc_lower_len}_{val}"]
         
         for val_X in self.sell_dc_lower_len.range:
-            donchian_df_X = pd_ta.donchian(dataframe['close'], dataframe['close'], lower_length=val_X,upper_length=dc_upper_len)
+            donchian_df_X = pd_ta.donchian(dataframe['high'], dataframe['low'], lower_length=val_X,upper_length=dc_upper_len)
             dataframe['DC_lower_X'] = donchian_df_X[f"DCL_{val_X}_{dc_upper_len}"]
             dataframe['DC_upper_X'] = donchian_df_X[f"DCU_{val_X}_{dc_upper_len}"]
             dataframe['DC_mid_X'] = donchian_df_X[f"DCM_{val_X}_{dc_upper_len}"]
